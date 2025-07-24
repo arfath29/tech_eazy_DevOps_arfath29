@@ -135,3 +135,7 @@ Use the read-only role to test if logs are viewable but not downloadable.
 Assignment 1: EC2 provisioning and Spring Boot app deployment with multi-env support
 
 Assignment 2: S3 logging, IAM role separation, and Terraform-based infrastructure extension
+
+## Add Postman Collection for API Testing
+- Added Postman collection to resources/
+- Can be used to test the Spring Boot API deployed via EC2
