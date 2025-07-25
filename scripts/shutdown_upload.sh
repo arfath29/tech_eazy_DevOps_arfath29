@@ -1,10 +1,9 @@
 #!/bin/bash
 
 INSTANCE_ID=$1
-BUCKET_NAME=$2
+SLEEP_TIME=${2:-1800}  # default 30 min
 
-aws s3 cp /var/log/cloud-init.log s3://$BUCKET_NAME/system/
-aws s3 cp /var/log/app.log s3://$BUCKET_NAME/app/logs/
+sleep $SLEEP_TIME
+aws ec2 stop-instances --instance-ids $INSTANCE_ID
 
-aws ec2 stop-instances --instance-ids "$INSTANCE_ID"
-echo "🛑 EC2 instance $INSTANCE_ID stopped and logs uploaded"
+echo "Stopped EC2 instance: $INSTANCE_ID"
